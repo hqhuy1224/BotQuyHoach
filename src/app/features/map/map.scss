@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+}
+
+.map-container {
+  height: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #edf2f7;
+}
+
+.map-toolbar {
+  min-height: 58px;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: white;
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.map-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  strong {
+    font-size: 15px;
+    color: #334155;
+  }
+
+  span {
+    font-size: 12px;
+    color: #64748b;
+  }
+}
+
+.map-actions {
+  display: flex;
+  gap: 6px;
+
+  button {
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+
+    background: white;
+    color: #475569;
+    font-size: 19px;
+    cursor: pointer;
+
+    &:hover {
+      background: #eaf3fb;
+      color: #1769aa;
+    }
+  }
+}
+
+.map-canvas {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+
+  background-color: #e8edf0;
+
+  background-image:
+    linear-gradient(35deg, transparent 48%, #d5dfe4 49%, #d5dfe4 50%, transparent 51%),
+    linear-gradient(-35deg, transparent 48%, #d5dfe4 49%, #d5dfe4 50%, transparent 51%);
+
+  background-size: 100px 100px;
+}
+
+.maplibre-container {
+  position: absolute;
+  inset: 0;
+}
+
+.map-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #64748b;
+
+  h3 {
+    margin: 12px 0 5px;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  > span {
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #dce5ec;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+.map-placeholder-icon {
+  font-size: 42px;
+}
+
+.map-coordinate {
+  padding: 8px 14px;
+  background: white;
+  border-top: 1px solid #e5eaf0;
+  color: #64748b;
+  font-size: 12px;
+}

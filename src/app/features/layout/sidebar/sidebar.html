@@ -1,0 +1,42 @@
+<aside class="sidebar">
+  <div class="sidebar-heading">
+    <h3>Tra cứu bản đồ</h3>
+    <span>Khám phá thông tin quy hoạch</span>
+  </div>
+
+  <div class="search-box">
+    <span>⌕</span>
+
+    <input
+      type="text"
+      placeholder="Tìm kiếm lớp bản đồ..."
+      [value]="keyword()"
+      (input)="onSearch($event)"
+    />
+  </div>
+
+  <div class="section-heading">
+    <strong>QUẢN LÝ LỚP BẢN ĐỒ</strong>
+    <span>{{ layers().length }} lớp</span>
+  </div>
+
+  <div class="layer-list">
+    @for (layer of filteredLayers; track layer.id) {
+      <label class="layer-item">
+        <div class="layer-info">
+          <span class="layer-icon">▦</span>
+          <span>{{ layer.name }}</span>
+        </div>
+
+        <input type="checkbox" [checked]="layer.enabled" (change)="toggleLayer(layer.id)" />
+      </label>
+    } @empty {
+      <div class="empty-state">Không tìm thấy lớp bản đồ.</div>
+    }
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="status-dot"></div>
+    Hệ thống bản đồ sẵn sàng
+  </div>
+</aside>

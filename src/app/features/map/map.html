@@ -1,0 +1,20 @@
+<section class="map-container">
+  <div class="map-toolbar">
+    <div class="map-title">
+      <strong>{{ mapTitle }}</strong>
+      <span>Hải Phòng, Việt Nam</span>
+    </div>
+
+    <div class="map-actions">
+      <button title="Phóng to" (click)="zoomIn()">+</button>
+      <button title="Thu nhỏ" (click)="zoomOut()">−</button>
+      <button title="Về vị trí ban đầu" (click)="resetMap()">⌖</button>
+    </div>
+  </div>
+
+  <div class="map-canvas">
+    <div #map class="maplibre-container"></div>
+  </div>
+
+  <div class="map-coordinate">Bản đồ Hải Phòng · MapLibre GL JS</div>
+</section>

@@ -1,0 +1,32 @@
+<button #launcher class="chat-launcher" type="button" (click)="toggle()"
+  [attr.aria-expanded]="isOpen()" aria-controls="chatbot-panel"
+  [attr.aria-label]="isOpen() ? 'Thu gọn chatbot' : 'Mở chatbot tư vấn quy hoạch'"
+  title="Chatbot tư vấn quy hoạch">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-3 2V11.5A8.5 8.5 0 0 1 9.5 3h3a8.5 8.5 0 0 1 8.5 8.5Z" />
+    <path d="M7 11h.01M12 11h.01M17 11h.01" stroke-width="3" stroke-linecap="round" />
+  </svg>
+</button>
+
+@if (hasOpened()) {
+  <section #panel id="chatbot-panel" class="chat-panel" [hidden]="!isOpen()"
+    [class.dragging]="dragging()" [style.left.px]="position()?.x"
+    [style.top.px]="position()?.y" [style.right]="position() ? 'auto' : null"
+    [style.bottom]="position() ? 'auto' : null"
+    role="region" aria-labelledby="chatbot-title" (keydown.escape)="close()">
+    <header class="chat-header" (pointerdown)="startDrag($event)"
+      (pointermove)="moveDrag($event)" (pointerup)="endDrag($event)"
+      (pointercancel)="endDrag($event)" (lostpointercapture)="endDrag($event)">
+      <div>
+        <strong id="chatbot-title">Trợ lý quy hoạch</strong>
+        <span>Kéo thanh này để di chuyển</span>
+      </div>
+      <button type="button" class="close-button" aria-label="Thu gọn chatbot" title="Thu gọn" (click)="close()">×</button>
+    </header>
+    <div class="chat-content">
+      <iframe src="https://dify.fastwork.vn/chatbot/Nj1TnnXO1I4aktxm"
+        title="Chatbot tư vấn quy hoạch" allow="microphone; clipboard-write"></iframe>
+      @if (dragging()) { <div class="drag-shield" aria-hidden="true"></div> }
+    </div>
+  </section>
+}
